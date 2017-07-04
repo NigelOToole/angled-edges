@@ -8,6 +8,7 @@ It is only intended for use on full width elements as it uses the vw unit to cal
 
 
 ##Usage
+
 Once you have downloaded the code, run the commands below to view the demo.
 
 ```javascript
