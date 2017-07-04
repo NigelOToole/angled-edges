@@ -1,0 +1,130 @@
+// ----- Mixins -----
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// ----- Base styles -----
+
+// Reset the box-sizing
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// Body reset
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  color: #1976D2;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover, &:focus {
+    color: #2196F3;
+  }
+}
+
+// Type
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+
+  small {
+    font-size: 60%;
+  }
+}
+h1, h2, h3 {
+  margin: 20px 0;
+}
+h4, h5, h6 {
+  margin: 10px 0;
+}
+
+h1 { font-size: 38px; }
+h2 { font-size: 34px; }
+h3 { font-size: 26px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+
+p {
+  margin: 0 0 15px 0;
+}
+
+strong {
+  font-weight: 400;
+}
+
+
+// ----- Layout -----
+.container {
+  max-width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include clearfix();  
+}
+
+
+
+// ----- Demo styling -----
+// Container for each demo
+.demo {
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  &.container {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+// Blocks of code
+pre {
+  display: block;
+  padding: 10px 15px;
+  margin: 0 0 20px 0;
+  overflow: auto;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 14px;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f3f3f3;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.install {
+
+  .btn {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.usage {
+  font-size: 18px;
+}

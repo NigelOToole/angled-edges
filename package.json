@@ -1,0 +1,39 @@
+{
+  "name": "angled-edges",
+  "description": "Add a consistent angled edge to a full width element.",
+  "version": "1.0.0",
+  "main": "assets/styles/angled-edges.scss",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NigelOToole/angled-edges.git"
+  },
+  "keywords": [
+    "sass",
+    "mixin",
+    "angled",
+    "clip-path",
+    "css"
+  ],
+  "author": "Nigel O Toole <pure@purestructure.com> (http://www.purestructure.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NigelOToole/angled-edges/issues"
+  },
+  "homepage": "https://github.com/NigelOToole/angled-edges#readme",
+  "engines": {
+    "node": ">=4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.2.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.0",
+    "gulp-sourcemaps": "^1.5.0"
+  }
+}

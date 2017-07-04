@@ -1,0 +1,158 @@
+
+
+.header-image {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.header-colour {
+  width: 100%;
+  height: 500px;
+
+  .header-colour__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  color: #fff;
+  background-color: #1976D2;
+
+  // img {
+  //   display: block;
+  //   width: 100%;
+  //   height: auto;
+  // }
+}
+
+@mixin angle-edge($angle, $angle-position-y, $angle-position-x, $angle-position-bottom-x: '', $fallback: true, $fallback-color: #fff) {
+
+  position: relative;
+  overflow: hidden;
+
+  @if $angle-position-bottom-x == '' {
+    $angle-position-bottom-x: $angle-position-x;
+  }
+
+  $angle-calc-top: calc(0% + #{$angle}vw);
+  $angle-calc-bottom: calc(100% - #{$angle}vw);
+
+  $clip-path-top: 0 0, 100% 0;
+  $clip-path-bottom: 100% 100%, 0 100%;
+
+  $border-width-top: '';
+  $border-width-bottom: '';
+  $border-color-top: '';
+  $border-color-bottom: '';
+
+
+  @if $angle-position-y == 'top' or $angle-position-y == 'both' {
+    
+    @if $angle-position-x == 'left' {
+      $clip-path-top: 0 $angle-calc-top, 100% 0;   
+
+      $border-width-top: #{$angle + 1}vw 100vw 0 0;
+    }
+
+    @if $angle-position-x == 'right' {
+      $clip-path-top: 0 0, 100% $angle-calc-top;
+
+      $border-width-top: #{$angle + 1}vw 0 0 100vw;
+    }
+
+    $border-color-top: $fallback-color transparent transparent transparent;
+  }
+
+
+  @if $angle-position-y == 'bottom' or $angle-position-y == 'both' {
+
+    @if $angle-position-y == 'both' and $angle-position-x != $angle-position-bottom-x {
+      $angle-position-x: $angle-position-bottom-x;
+    }
+
+    @if $angle-position-x == 'left' {
+      $clip-path-bottom: 100% 100%, 0 $angle-calc-bottom;   
+
+      $border-width-bottom: 0 100vw #{$angle + 1}vw 0;
+    }
+
+    @if $angle-position-x == 'right' {
+      $clip-path-bottom: 100% $angle-calc-bottom, 0 100%;   
+
+      $border-width-bottom: 0 0 #{$angle + 1}vw 100vw;
+    }
+    
+    $border-color-bottom: transparent transparent $fallback-color transparent;
+  }
+
+  $clip-path: polygon($clip-path-top, $clip-path-bottom);
+  clip-path: $clip-path;
+
+
+  // Fallback for clip-path with solid colours
+  @if $fallback {
+
+    &::before, &::after {
+      position: absolute;
+      left: 0;
+      z-index: 10;
+      display: block;
+      border-style: solid;
+    }
+
+    @supports not (clip-path: $clip-path) {
+      @if $angle-position-y == 'top' or $angle-position-y == 'both' {
+        &::before {
+          top: 0;
+          border-width: $border-width-top;
+          border-color: $border-color-top;
+        }
+      }
+
+      @if $angle-position-y == 'bottom' or $angle-position-y == 'both' {
+        &::after {
+          bottom: 0;
+          border-width: $border-width-bottom;
+          border-color: $border-color-bottom;
+        }
+      }
+    }
+
+  }
+
+}
+
+.angle--top-left {
+  @include angle-edge($angle: 6, $angle-position-y: 'top', $angle-position-x: 'left');
+}
+
+.angle--top-right {
+  @include angle-edge($angle: 6, $angle-position-y: 'top', $angle-position-x: 'right');
+}
+
+.angle--bottom-left {
+  @include angle-edge($angle: 6, $angle-position-y: 'bottom', $angle-position-x: 'left');
+}
+
+.angle--bottom-right {
+  @include angle-edge($angle: 6, $angle-position-y: 'bottom', $angle-position-x: 'right');
+}
+
+.angle--both-left-left {
+  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'left');
+}
+
+.angle--both-right-right {
+  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'right');
+}
+
+.angle--both-left-right {
+  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'left', $angle-position-bottom-x: 'right');
+}
+
+.angle--both-right-left {
+  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
+}
