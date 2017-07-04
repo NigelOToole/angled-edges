@@ -7,7 +7,7 @@ This technique uses CSS clip-path to clip the image but has a fallback using pse
 It is only intended for use on full width elements as it uses the vw unit to calulate the angle.
 
 
-##Usage
+## Usage
 
 Once you have downloaded the code, run the commands below to view the demo.
 
