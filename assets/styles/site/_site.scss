@@ -13,21 +13,19 @@
 
 // ----- Base styles -----
 
-// Reset the box-sizing
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
-// Body reset
 html {
   font-size: 10px;
 }
 
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.4;
   color: #333;
@@ -75,6 +73,7 @@ strong {
 }
 
 
+
 // ----- Layout -----
 .container {
   max-width: 1170px;
@@ -85,20 +84,47 @@ strong {
   @include clearfix();  
 }
 
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 12px;
+  text-align: center;
+}
 
 
-// ----- Demo styling -----
-// Container for each demo
+
+// ----- Demo -----
 .demo {
   margin-top: 20px;
   margin-bottom: 40px;
+}
 
-  &.container {
-    border-bottom: 1px solid #ddd;
+.demo--intro {
+  border-bottom: 1px solid #ddd;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid #bbb;
+  padding: 4px 12px 6px 12px;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: background-color .3s, color .3s;
+
+  &:hover, &:active {
+    background-color: #f3f3f3;
   }
 }
 
-// Blocks of code
+.install .btn {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
 pre {
   display: block;
   padding: 10px 15px;
@@ -111,20 +137,4 @@ pre {
   background-color: #f3f3f3;
   border: 1px solid #bbb;
   border-radius: 4px;
-}
-
-.install {
-
-  .btn {
-    margin-right: 15px;
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    margin-top: 0;
-  }
-}
-
-.usage {
-  font-size: 18px;
 }

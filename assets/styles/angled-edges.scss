@@ -1,33 +1,4 @@
 
-
-.header-image {
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-
-.header-colour {
-  width: 100%;
-  height: 500px;
-
-  .header-colour__text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  color: #fff;
-  background-color: #1976D2;
-
-  // img {
-  //   display: block;
-  //   width: 100%;
-  //   height: auto;
-  // }
-}
-
 @mixin angle-edge($angle, $angle-position-y, $angle-position-x, $angle-position-bottom-x: '', $fallback: true, $fallback-color: #fff) {
 
   position: relative;
@@ -125,6 +96,7 @@
 
 }
 
+// Classes
 .angle--top-left {
   @include angle-edge($angle: 6, $angle-position-y: 'top', $angle-position-x: 'left');
 }
@@ -155,4 +127,18 @@
 
 .angle--both-right-left {
   @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
+}
+
+
+  .angle__content {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.angle--colour {
+  color: #fff;
+  background-color: #1976D2;
+  text-align: center;
+  padding: 10% 0;
 }

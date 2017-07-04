@@ -1,21 +1,10 @@
-# SASS Progress Tracker
+# Angled Edges (SASS mixin)
 
-[Live demo](http://nigelotoole.github.io/progress-tracker/)
+[Live demo](http://nigelotoole.github.io/angled-edges/)
 
-A progress tracker written in SASS with flexbox to be flexible and responsive out of the box. This can be used to illustrate a multi stage process e.g. form, quiz or a timeline.
-
-
-##Installation
-
-###npm
-```javascript
-$ npm install progress-tracker --save
-```
-
-###bower
-```javascript
-$ bower install progress-tracker --save
-```
+Add a consistent angled edge to a full width element.
+This technique uses CSS clip-path to clip the image but has a fallback using pseudo elements for older browsers.
+It is only intended for use on full width elements as it uses the vw unit to calulate the angle.
 
 
 ##Usage
@@ -26,28 +15,15 @@ $ npm install
 $ gulp serve
 ```
 
-You can also just import **progress-tracker.scss** into your own project and modify as needed. Optional files are **progress-tracker-animations.scss** to add animations and **progress-tracker-theme.scss** for quicker theming.
+You can also import **angled-edges.scss** into your own project directly and use the classes already setup or use the mixin in your own classes.
 
-Follow the code example below for basic usage, each demo sets the first two steps as complete, the third step as active and the last two steps as inactive. For additional styles add a modifier classes to the ul and add additional markup as needed in the examples.
+
+Follow the code example below for basic usage with an angle on the top left.
 
 ```html
-<ul class="progress-tracker">
-  <li class="progress-step is-complete">
-    <span class="progress-marker"></span>
-  </li>
-  <li class="progress-step is-complete">
-    <span class="progress-marker"></span>
-  </li>
-  <li class="progress-step is-active">
-    <span class="progress-marker"></span>
-  </li>
-  <li class="progress-step">
-    <span class="progress-marker"></span>
-  </li>
-  <li class="progress-step">
-    <span class="progress-marker"></span>
-  </li>
-</ul>
+  <div class="angle--top-left">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Sig07-007.jpg/1280px-Sig07-007.jpg" alt="Nebula" class="angle__content">
+  </div>
 ```
 
 
