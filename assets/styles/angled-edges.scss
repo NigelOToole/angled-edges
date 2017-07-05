@@ -1,4 +1,11 @@
 
+// $angle: The angle in degrees: 1 - 45
+// $angle-position-y: The Y position of the angle: top | bottom | both
+// $angle-position-x: The X position of the angle: left | right
+// $angle-position-bottom-x: The X position of the bottom angle if using 'both' for $angle-position-y: left | right
+// $fallback: Create a fallback for older browsers: true | false
+// $fallback-color: Fallback colour for older browsers: Hex color
+
 @mixin angle-edge($angle, $angle-position-y, $angle-position-x, $angle-position-bottom-x: '', $fallback: true, $fallback-color: #fff) {
 
   position: relative;
