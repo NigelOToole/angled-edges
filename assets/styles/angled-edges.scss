@@ -4,6 +4,15 @@
   position: relative;
   overflow: hidden;
 
+  // Converts degrees to VW, 100vw = 45deg using this technique
+  @if $angle < 46 {
+    $angle: convertDegToVW($angle);
+  }
+  @if $angle > 45 {
+    $angle: 0;
+    @error 'Invalid angle, it must be between 1-45';
+  }
+
   @if $angle-position-bottom-x == '' {
     $angle-position-bottom-x: $angle-position-x;
   }
@@ -96,37 +105,43 @@
 
 }
 
+// Converts degrees to VW, 100vw = 45deg using this technique
+@function convertDegToVW($angle){
+  @return round($angle*2.22);
+}
+
+
 // Classes
 .angle--top-left {
-  @include angle-edge($angle: 6, $angle-position-y: 'top', $angle-position-x: 'left');
+  @include angle-edge($angle: 3, $angle-position-y: 'top', $angle-position-x: 'left');
 }
 
 .angle--top-right {
-  @include angle-edge($angle: 6, $angle-position-y: 'top', $angle-position-x: 'right');
+  @include angle-edge($angle: 3, $angle-position-y: 'top', $angle-position-x: 'right');
 }
 
 .angle--bottom-left {
-  @include angle-edge($angle: 6, $angle-position-y: 'bottom', $angle-position-x: 'left');
+  @include angle-edge($angle: 3, $angle-position-y: 'bottom', $angle-position-x: 'left');
 }
 
 .angle--bottom-right {
-  @include angle-edge($angle: 6, $angle-position-y: 'bottom', $angle-position-x: 'right');
+  @include angle-edge($angle: 3, $angle-position-y: 'bottom', $angle-position-x: 'right');
 }
 
 .angle--both-left-left {
-  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'left');
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'left');
 }
 
 .angle--both-right-right {
-  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'right');
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'right');
 }
 
 .angle--both-left-right {
-  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'left', $angle-position-bottom-x: 'right');
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'left', $angle-position-bottom-x: 'right');
 }
 
 .angle--both-right-left {
-  @include angle-edge($angle: 6, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
+  @include angle-edge($angle: 3, $angle-position-y: 'both', $angle-position-x: 'right', $angle-position-bottom-x: 'left');
 }
 
 
