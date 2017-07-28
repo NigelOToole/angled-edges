@@ -83,6 +83,7 @@
   @if $fallback {
 
     &::before, &::after {
+      content: "";
       position: absolute;
       left: 0;
       z-index: 10;
