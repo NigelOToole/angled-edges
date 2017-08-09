@@ -82,16 +82,17 @@
   // Fallback for clip-path with solid colours
   @if $fallback {
 
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      z-index: 10;
-      display: block;
-      border-style: solid;
-    }
-
     @supports not (clip-path: $clip-path) {
+
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        display: block;
+        border-style: solid;
+      }
+
       @if $angle-position-y == 'top' or $angle-position-y == 'both' {
         &::before {
           top: 0;
@@ -107,6 +108,7 @@
           border-color: $border-color-bottom;
         }
       }
+
     }
 
   }
