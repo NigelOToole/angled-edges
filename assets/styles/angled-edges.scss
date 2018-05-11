@@ -12,12 +12,12 @@
   overflow: hidden;
 
   // Converts degrees to VW, 100vw = 45deg using this technique
-  @if $angle < 46 {
-    $angle: convertDegToVW($angle);
-  }
   @if $angle > 45 {
     $angle: 0;
     @error 'Invalid angle, it must be between 1-45';
+  }
+  @if $angle < 46 {
+    $angle: convertDegToVW($angle);
   }
 
   @if $angle-position-bottom-x == '' {
