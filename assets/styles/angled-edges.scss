@@ -37,9 +37,9 @@
 
 
   @if $angle-position-y == 'top' or $angle-position-y == 'both' {
-    
+
     @if $angle-position-x == 'left' {
-      $clip-path-top: 0 $angle-calc-top, 100% 0;   
+      $clip-path-top: 0 $angle-calc-top, 100% 0;
 
       $border-width-top: #{$angle + 1}vw 100vw 0 0;
     }
@@ -61,17 +61,17 @@
     }
 
     @if $angle-position-x == 'left' {
-      $clip-path-bottom: 100% 100%, 0 $angle-calc-bottom;   
+      $clip-path-bottom: 100% 100%, 0 $angle-calc-bottom;
 
       $border-width-bottom: 0 100vw #{$angle + 1}vw 0;
     }
 
     @if $angle-position-x == 'right' {
-      $clip-path-bottom: 100% $angle-calc-bottom, 0 100%;   
+      $clip-path-bottom: 100% $angle-calc-bottom, 0 100%;
 
       $border-width-bottom: 0 0 #{$angle + 1}vw 100vw;
     }
-    
+
     $border-color-bottom: transparent transparent $fallback-color transparent;
   }
 
